@@ -1,0 +1,84 @@
+body {
+	font-family: arial, verdana;
+	font-weight: 14px
+}
+
+div{
+	margin: 0 !important
+}
+
+input {
+	width: 50%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+}
+
+.weather-card { 
+	border: 1px solid #ccc;
+	padding: 10px;
+	background: #f3f3f3;
+    height: 300px;
+    overflow: hidden;
+}
+
+.date {
+	padding-bottom: 10px;
+    color: #0052bb;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.temprature {
+	padding-bottom: 20px;
+}
+
+.max-temprature {
+	font: bold 16px arial;
+	color: #000
+}
+
+.min-temprature sup, .max-temprature sup {
+	font: normal 10px arial;
+	color: #676767;
+}
+
+.min-temprature {
+	font: bold 14px arial;
+	color: #8a8888
+}
+
+.humidity {
+	padding-bottom: 5px;
+
+}
+
+.weather-icon {
+	height: 130px;
+}
+
+.weather-icon span{
+	display: block;
+    height: 120px;
+}	
+
+.day {
+	background: url('../images/day.png') center no-repeat;
+}
+
+.cloudyday {
+	background: url('../images/cloudyday.png') center no-repeat;
+}
+
+.moon {
+	background: url('../images/moon.png') center no-repeat;
+}
+
+.cloudymoon {
+	background: url('../images/cloudymoon.png') center no-repeat;
+}	
+
+.rain {
+	background: url('../images/rain.png') center no-repeat;
+}
