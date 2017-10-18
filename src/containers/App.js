@@ -11,11 +11,11 @@ export default class App extends React.Component {
 		this.state = {
 			data: null
 		}
+		this.placeChangedCallback = this.placeChangedCallback.bind(this)
 	}
 	componentDidMount() {
-		let thiz = this;
 	    this.places = new google.maps.places.Autocomplete(this.locationSearchField);
-	    google.maps.event.addListener(this.places, 'place_changed', this.placeChangedCallback.bind(thiz));
+	    google.maps.event.addListener(this.places, 'place_changed', this.placeChangedCallback);
 	}
 	placeChangedCallback() {
         let place = this.places.getPlace()
@@ -30,11 +30,11 @@ export default class App extends React.Component {
 		if(lat === null || lon === null)
 			return
 		let wURL = `${this.apiURL}lat=${lat}&lon=${lon}&mode=json&appid=${this.appId}`
-		let thiz = this;
+		let self = this;
 		let cards = null
 		axios.get(wURL)
 			.then(function (response) {
-				thiz.getDataAsPerCurrentTimeSlot(response.data.list)		    			    	
+				self.getDataAsPerCurrentTimeSlot(response.data.list)		    			    	
 		  	})
 		  	.catch(function (error) {
 		    	console.log(error)
@@ -53,6 +53,9 @@ export default class App extends React.Component {
 		return parseInt(dateTxt.split(' ')[1].split(':')[0])
 	}
 	getDataAsPerCurrentTimeSlot(data) {
+		/* API returns forecast for entire day in 3 hours sets. For simplicity we are 
+           only displaying forecast from the current local system time.
+		 */
 		let d = new Date()
 		let cHours = d.getHours()
 		let timeSlot = ''

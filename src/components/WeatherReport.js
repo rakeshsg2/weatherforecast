@@ -3,9 +3,6 @@ import {Container, Row, Col} from 'react-grid-system'
 
 
 export default class WeatherReport extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 	getWeatherIcon(des, timeHour) {
 		let icon = ''
 		if(des.includes('clear sky') && (timeHour>=6 && timeHour<=18)) {
